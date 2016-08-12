@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+
+    "name": "Jira Helper",
+    "description": "Jira Helper for Chrome",
+    "version": "1.0",
+
+    "page_action":{
+        "default_icon": "icon.png",
+        "default_title": "Jira Helper",
+        "default_popup": "popup.html"       
+    },
+
+    "background":{
+        "scripts": ["eventPage.js"],
+        "persistent":false
+    },
+
+    "content_scripts": [
+        {
+        "matches": ["https://apps.milwaukeetool.com/jira/secure/RapidBoard.jspa?rapidView=92&view=detail*"],
+        "js": ["jira.js","jquery.min.js"]
+        }
+    ],
+
+    "permissions":[
+        "tabs",
+        "https://apps.milwaukeetool.com/jira/*"
+    ]
+}
